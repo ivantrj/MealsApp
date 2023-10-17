@@ -7,8 +7,10 @@ import 'package:meals_app/widgets/category_grid_item.dart';
 class CategoriesScreen extends StatelessWidget {
   const CategoriesScreen({super.key});
 
-  void _selecCategory(BuildContext context, Category category) {
-    final filteredMeals = dummyMeals.where((meal) => meal.categories.contains(category.id)).toList();
+  void _selectCategory(BuildContext context, Category category) {
+    final filteredMeals = dummyMeals
+        .where((meal) => meal.categories.contains(category.id))
+        .toList();
 
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -39,7 +41,7 @@ class CategoriesScreen extends StatelessWidget {
             CategoryGridItem(
               category: category,
               onSelectCategory: () {
-                _selecCategory(context, category);
+                _selectCategory(context, category);
               },
             )
         ],
